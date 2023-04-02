@@ -1,24 +1,59 @@
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar w/ text</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand c-primary fw-bolder fs-1" href="#">Eventio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="#">Events</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
+                <li class="nav-item dropdown me-2">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Become an organizer
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Sign up as organizer</a></li>
+                        <li><a class="dropdown-item" href="#">Pricing</a></li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
+                <form class="d-flex" role="search">
+                    <input class="form-control" type="search" placeholder="Search for events" aria-label="Search">
+                </form>
             </ul>
-            <span class="navbar-text">
-        Navbar text with an inline element
-      </span>
+
+            {% if is_granted('ROLE_USER') %}
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item dropdown me-2">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Account
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Events</a></li>
+                            {% if is_granted('ROLE_USER') %}
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Admin stuff</a></li>
+                            {% endif %}
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            {% else %}
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Sign up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                </ul>
+            {% endif %}
         </div>
     </div>
 </nav>

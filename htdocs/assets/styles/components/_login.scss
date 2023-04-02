@@ -1,0 +1,22 @@
+.login-wrap{
+  flex-grow: 1;
+  width: 100vw;
+  .login-form{
+    padding: 1.5rem;
+    width: 75%;
+    background-color: #fff;
+    margin: 0 5rem;
+  }
+  .login-img{
+    min-width: 50%;
+    min-height: 100%;
+    background-image: url("../../img/festival.jpeg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+  }
+}

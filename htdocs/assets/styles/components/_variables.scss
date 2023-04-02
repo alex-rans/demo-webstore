@@ -1,0 +1,15 @@
+$bg-color: #ffffff;
+$c-primary: #F2AF29;
+$c-secondary: #AD343E;
+.c-primary{
+  color: $c-primary;
+}
+.c-secondary{
+  color: $c-secondary;
+}
+.bg-c-primary{
+  background-color: $c-primary;
+}
+.bf-color-secondary{
+  background-color: $c-secondary;
+}

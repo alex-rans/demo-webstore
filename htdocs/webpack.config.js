@@ -7,8 +7,8 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 Encore
     .setOutputPath('public/build/')
     .copyFiles({
-        from: './assets/img/',
-        // to: 'img'
+        from: './assets/img',
+        to: 'img/[path][name].[ext]'
     })
     .setPublicPath('/build')
     .addEntry('main', './assets/js/app.js')
